@@ -6,8 +6,8 @@ using Unity.Cinemachine;
 public class Zoom : MonoBehaviour
 {
     public CinemachineCamera cam;
-    public float defaultFOV = 60;
-    public float maxZoomFOV = 15;
+    public float defaultFOV;
+    public float maxZoomFOV;
     [Range(0, 1)]
     public float currentZoom;
     public float sensitivity = 1;

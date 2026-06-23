@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class Jump : MonoBehaviour
 {
     Rigidbody rb;
-    public float jumpStrength = 2;
+    public float jumpStrength;
     public event System.Action Jumped;
     [SerializeField] InputActionAsset inputActions;
     private InputAction JumpAct;
