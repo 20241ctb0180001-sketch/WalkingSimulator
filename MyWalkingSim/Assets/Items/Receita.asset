@@ -16,3 +16,5 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: c326cd534defdd24188396851b349a4f, type: 3}
   text: "\xE9 uma receita completamente normal, com toda certeza"
   image: {fileID: 21300000, guid: fd8f8a38179114941aec7a4cf416cb86, type: 3}
+  invetoryItem: 1
+  CollectMessage: receita coletada

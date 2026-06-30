@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Bolo
   m_EditorClassIdentifier: Assembly-CSharp::Item
   grabbable: 1
-  audioClip: {fileID: 0}
-  text: "espera . . . isso aqui \xE9 sab\xE3o"
+  audioClip: {fileID: 8300000, guid: 1e4b91baed320694cb8c1dbb70374384, type: 3}
+  text: "Mas que bonito! . . espera . . . isso aqui \xE9 sab\xE3o"
   image: {fileID: 0}
+  invetoryItem: 1
+  CollectMessage: '"bolo" coletado'

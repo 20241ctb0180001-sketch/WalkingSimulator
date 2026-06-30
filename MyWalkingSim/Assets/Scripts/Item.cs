@@ -8,4 +8,8 @@ public class Item : ScriptableObject
     public AudioClip audioClip;
     public string text;
     public Sprite image;
+
+    [Header("invetory")]
+    public bool invetoryItem;
+    public string CollectMessage;
 }

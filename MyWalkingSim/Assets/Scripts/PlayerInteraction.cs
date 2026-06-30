@@ -24,12 +24,16 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float RotateSpeed;
     [SerializeField] private float objVel;
     private AudioPlayer audioPlayer;
+    public AudioClip anotandoSFX;
+
+    private PlayerInvetory inventory;
 
     void Awake()
     {
         interAct = inputActions.FindAction("Interact");
         rotateAct = inputActions.FindAction("Look");
         audioPlayer = GetComponent<AudioPlayer>();
+        inventory = GetComponent<PlayerInvetory>();
     }
 
     void Start()
@@ -141,6 +145,12 @@ public class PlayerInteraction : MonoBehaviour
         canFinish = false;
         taVendo = false;
         UiManager.instance.SetBackImage(false);
+        if (CurrentInteractable.item.invetoryItem)
+        {
+            inventory.AddItem(CurrentInteractable.item);
+            audioPlayer.PlayAudio(anotandoSFX);
+            CurrentInteractable.CollectItem.Invoke();
+        }
         if (CurrentInteractable.item.grabbable)
         {
             CurrentInteractable.transform.rotation = RotatOriginal;
