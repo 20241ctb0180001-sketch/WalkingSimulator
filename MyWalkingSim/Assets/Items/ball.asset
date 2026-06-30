@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   grabbable: 1
   audioClip: {fileID: 8300000, guid: 45bc1f53d954d6f48bb0384dc5dc58c0, type: 3}
-  text: era pra ser gelo
+  text: uma linda bola azul? verde?
   image: {fileID: 0}
+  invetoryItem: 0
+  CollectMessage: 

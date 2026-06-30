@@ -6,27 +6,32 @@ using UnityEngine.Events;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    [Header("player")]
     public float raydistance;
     [SerializeField] private Camera Mycam;
+     private Quaternion cameraRotationOriginal;
     [SerializeField] private Transform objViwer;
     public UnityEvent OnView;
     public UnityEvent OffView;
     private bool taVendo;
+    private Quaternion playerRotationOriginal;
+    private PlayerInvetory inventory;
+    
+    [Header("input actions & sound")]
     [SerializeField] InputActionAsset inputActions;
     private InputAction interAct;
     private InputAction rotateAct;
+    private AudioPlayer audioPlayer;
+    public AudioClip anotandoSFX;
+
+    [Header("Item & Interactions")]
     private Interactables CurrentInteractable;
     private Item currentItem;
     private Vector3 PosOriginal;
     private Quaternion RotatOriginal;
-    private Quaternion cameraRotationOriginal;
-    private Quaternion playerRotationOriginal;
-    private bool canFinish;
     [SerializeField] private float RotateSpeed;
     [SerializeField] private float objVel;
-    private AudioPlayer audioPlayer;
-    public AudioClip anotandoSFX;
-    private PlayerInvetory inventory;
+    private bool canFinish;
 
     void Awake()
     {
