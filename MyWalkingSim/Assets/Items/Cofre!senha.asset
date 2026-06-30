@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833f90b3d76f20f49b371d661ccf2a32, type: 3}
+  m_Name: Cofre!senha
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  grabbable: 0
+  audioClip: {fileID: 8300000, guid: 6369ece282868e1438b8a75703687742, type: 3}
+  text: Precisa de uma senha para esse cofre
+  image: {fileID: 0}
+  invetoryItem: 0
+  CollectMessage: 

@@ -866,6 +866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactables
   item: {fileID: 11400000, guid: 728f6a5e983e66a4795dbacd16b108ed, type: 2}
+  previousItem: []
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -1097,7 +1098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &500363427
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1996,6 +1997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactables
   item: {fileID: 11400000, guid: e62cd1a9b0fc464409beeb679449644b, type: 2}
+  previousItem: []
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -2418,22 +2420,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c98123af989c74c98ffb7a6e094563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactables
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: 059dd441849a8664b9428e877ba9bbaa, type: 2}
+  previousItem:
+  - requiredItem: {fileID: 11400000, guid: 92b4d8f1f451a8648a47fb01b13d9a76, type: 2}
+    InteractionItem: {fileID: 11400000, guid: 1af877a3cb714aa4fbdb5f4dd9bbee5a, type: 2}
+    Oninteract:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1246235447}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: receitaSubindo
+            m_BoolArgument: 0
+          m_CallState: 2
   OnInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1246235447}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: receitaSubindo
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   CollectItem:
     m_PersistentCalls:
       m_Calls: []
@@ -2912,6 +2920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactables
   item: {fileID: 11400000, guid: fb8fdf87f72cc3e458fdea03bcec4904, type: 2}
+  previousItem: []
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -3152,6 +3161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactables
   item: {fileID: 11400000, guid: b701bbcd65d2ceb40be061909041e9ec, type: 2}
+  previousItem: []
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -3398,6 +3408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactables
   item: {fileID: 11400000, guid: 57e6cdd90de11204c8ad2a5d78092a8a, type: 2}
+  previousItem: []
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -4725,6 +4736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactables
   item: {fileID: 11400000, guid: 92b4d8f1f451a8648a47fb01b13d9a76, type: 2}
+  previousItem: []
   OnInteract:
     m_PersistentCalls:
       m_Calls: []

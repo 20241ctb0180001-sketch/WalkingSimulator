@@ -16,6 +16,7 @@ public class PlayerInteraction : MonoBehaviour
     private InputAction interAct;
     private InputAction rotateAct;
     private Interactables CurrentInteractable;
+    private Item currentItem;
     private Vector3 PosOriginal;
     private Quaternion RotatOriginal;
     private Quaternion cameraRotationOriginal;
@@ -25,7 +26,6 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float objVel;
     private AudioPlayer audioPlayer;
     public AudioClip anotandoSFX;
-
     private PlayerInvetory inventory;
 
     void Awake()
@@ -86,6 +86,19 @@ public class PlayerInteraction : MonoBehaviour
                     {
                         OnView.Invoke();
                         taVendo = true;
+                        bool hasPreviousItem = false;
+                        for(int i = 0; i<CurrentInteractable.previousItem.Length; i++)
+                        {
+                            if (inventory.itens.Contains(CurrentInteractable.previousItem[i].requiredItem))
+                            {
+                                Interact(CurrentInteractable.previousItem[i].InteractionItem);
+                                CurrentInteractable.previousItem[i].Oninteract.Invoke();
+                                hasPreviousItem = true;
+                                break;
+                            }
+                        }
+                        if(hasPreviousItem){ return; }
+
                         Interact(CurrentInteractable.item);
                         if (CurrentInteractable.item.grabbable)
                         {
@@ -117,6 +130,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void Interact(Item item)
     {
+        currentItem = item;
         if (item.image != null)
         {
             UiManager.instance.SetImage(item.image);
@@ -129,7 +143,7 @@ public class PlayerInteraction : MonoBehaviour
     void CanFinish()
     {
         canFinish = true;
-        if (CurrentInteractable.item.image == null && !CurrentInteractable.item.grabbable)
+        if (currentItem.image == null && !currentItem.grabbable)
         {
             FinishView();
         }
@@ -145,13 +159,13 @@ public class PlayerInteraction : MonoBehaviour
         canFinish = false;
         taVendo = false;
         UiManager.instance.SetBackImage(false);
-        if (CurrentInteractable.item.invetoryItem)
+        if (currentItem.invetoryItem)
         {
-            inventory.AddItem(CurrentInteractable.item);
+            inventory.AddItem(currentItem);
             audioPlayer.PlayAudio(anotandoSFX);
             CurrentInteractable.CollectItem.Invoke();
         }
-        if (CurrentInteractable.item.grabbable)
+        if (currentItem.grabbable)
         {
             CurrentInteractable.transform.rotation = RotatOriginal;
             StartCoroutine(MovingObject(CurrentInteractable, PosOriginal));
