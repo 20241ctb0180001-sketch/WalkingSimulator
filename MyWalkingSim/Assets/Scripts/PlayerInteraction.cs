@@ -18,14 +18,18 @@ public class PlayerInteraction : MonoBehaviour
     private Interactables CurrentInteractable;
     private Vector3 PosOriginal;
     private Quaternion RotatOriginal;
+    private Quaternion cameraRotationOriginal;
+    private Quaternion playerRotationOriginal;
     private bool canFinish;
     [SerializeField] private float RotateSpeed;
     [SerializeField] private float objVel;
+    private AudioPlayer audioPlayer;
 
     void Awake()
     {
         interAct = inputActions.FindAction("Interact");
         rotateAct = inputActions.FindAction("Look");
+        audioPlayer = GetComponent<AudioPlayer>();
     }
 
     void Start()
@@ -40,11 +44,16 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (taVendo)
         {
+            transform.rotation = playerRotationOriginal;
+            if (Mycam != null)
+            {
+                Mycam.transform.rotation = cameraRotationOriginal;
+            }
             if (CurrentInteractable.item.grabbable && Mouse.current.leftButton.isPressed)
             {
                 RotateObj();
             }
-            if(canFinish && Mouse.current.rightButton.isPressed)
+            if (canFinish && Mouse.current.rightButton.isPressed)
             {
                 FinishView();
             }
@@ -61,16 +70,25 @@ public class PlayerInteraction : MonoBehaviour
                 UiManager.instance.SetCursor(true);
                 if (interAct.WasPressedThisFrame())
                 {
-                    if(interactable.isMoving){ return; }
-                    OnView.Invoke();
-                    CurrentInteractable = interactable;
-                    taVendo = true;
-                    Invoke("CanFinish", 1f);
-                    if (CurrentInteractable.item.grabbable)
+                    if (interactable.isMoving) { return; }
+                    playerRotationOriginal = transform.rotation;
+                    if (Mycam != null)
                     {
-                        PosOriginal = CurrentInteractable.transform.position;
-                        RotatOriginal = CurrentInteractable.transform.rotation;
-                        StartCoroutine(MovingObject(CurrentInteractable, objViwer.position));
+                        cameraRotationOriginal = Mycam.transform.rotation;
+                    }
+                    CurrentInteractable = interactable;
+                    CurrentInteractable.OnInteract.Invoke();
+                    if (CurrentInteractable.item != null)
+                    {
+                        OnView.Invoke();
+                        taVendo = true;
+                        Interact(CurrentInteractable.item);
+                        if (CurrentInteractable.item.grabbable)
+                        {
+                            PosOriginal = CurrentInteractable.transform.position;
+                            RotatOriginal = CurrentInteractable.transform.rotation;
+                            StartCoroutine(MovingObject(CurrentInteractable, objViwer.position));
+                        }
                     }
                 }
             }
@@ -93,10 +111,29 @@ public class PlayerInteraction : MonoBehaviour
         CurrentInteractable.transform.Rotate(Mycam.transform.up, -Mathf.Deg2Rad * x * RotateSpeed, Space.World);
     }
 
+    void Interact(Item item)
+    {
+        if (item.image != null)
+        {
+            UiManager.instance.SetImage(item.image);
+        }
+        audioPlayer.PlayAudio(item.audioClip);
+        UiManager.instance.SetCaptions(item.text);
+        Invoke("CanFinish", item.audioClip.length + 0.5f);
+    }
+
     void CanFinish()
     {
         canFinish = true;
-        UiManager.instance.SetBackImage(true);
+        if (CurrentInteractable.item.image == null && !CurrentInteractable.item.grabbable)
+        {
+            FinishView();
+        }
+        else
+        {
+            UiManager.instance.SetBackImage(true);
+        }
+        UiManager.instance.SetCaptions("");
     }
 
     void FinishView()

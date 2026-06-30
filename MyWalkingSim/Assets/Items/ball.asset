@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ball
   m_EditorClassIdentifier: Assembly-CSharp::Item
   grabbable: 1
-  audioClip: {fileID: 0}
-  text: 
+  audioClip: {fileID: 8300000, guid: 45bc1f53d954d6f48bb0384dc5dc58c0, type: 3}
+  text: "\xE9 popular em v\xE1rias coisas"
