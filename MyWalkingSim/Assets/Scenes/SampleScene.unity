@@ -472,6 +472,7 @@ GameObject:
   - component: {fileID: 173026057}
   - component: {fileID: 173026059}
   - component: {fileID: 173026060}
+  - component: {fileID: 173026061}
   m_Layer: 0
   m_Name: mesaBolo
   m_TagString: Untagged
@@ -595,6 +596,49 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &173026061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173026054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56c98123af989c74c98ffb7a6e094563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactables
+  item: {fileID: 11400000, guid: fd211ed9bc156ea4da5c3f0d558c69ef, type: 2}
+  previousItem:
+  - requiredItem: {fileID: 11400000, guid: fb8fdf87f72cc3e458fdea03bcec4904, type: 2}
+    InteractionItem: {fileID: 11400000, guid: 6c06768770fec3f44b8c3406c37b224f, type: 2}
+    Oninteract:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 173026059}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: boloSurgindo
+            m_BoolArgument: 0
+          m_CallState: 2
+  - requiredItem: {fileID: 11400000, guid: 92b4d8f1f451a8648a47fb01b13d9a76, type: 2}
+    InteractionItem: {fileID: 11400000, guid: 4e4b7fa15e216384385f5942b751c886, type: 2}
+    Oninteract:
+      m_PersistentCalls:
+        m_Calls: []
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  CollectItem:
+    m_PersistentCalls:
+      m_Calls: []
+  isMoving: 0
 --- !u!1 &197208299
 GameObject:
   m_ObjectHideFlags: 0

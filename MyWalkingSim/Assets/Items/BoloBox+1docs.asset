@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 833f90b3d76f20f49b371d661ccf2a32, type: 3}
-  m_Name: Documentos
+  m_Name: BoloBox+1docs
   m_EditorClassIdentifier: Assembly-CSharp::Item
   grabbable: 0
-  audioClip: {fileID: 8300000, guid: bcd7af038f63008479232c9921ad1485, type: 3}
-  text: "!SUPER SECRETO! senhas e mais senhas. .  o ingrediente secreto \xE9 . .
-    . essa parte est\xE1 rasgada"
-  image: {fileID: 21300000, guid: 80347d8f663d2f14c8c14f1b83f05fb4, type: 3}
-  invetoryItem: 1
-  CollectMessage: 'Senhas coletadas : 7764 , 11/09/2001'
+  audioClip: {fileID: 8300000, guid: 72d0a92f8db76624cba50753c94a3712, type: 3}
+  text: "ainda \xE9 uma . . mesa . .? posso colocar uma senha de data, mas ainda
+    precisa de um documento?"
+  image: {fileID: 0}
+  invetoryItem: 0
+  CollectMessage: 

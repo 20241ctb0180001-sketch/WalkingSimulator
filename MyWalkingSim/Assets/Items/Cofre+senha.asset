@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   grabbable: 0
   audioClip: {fileID: 8300000, guid: cb62479967876cb4d88ba36d9c832c39, type: 3}
-  text: senha correta
+  text: 'senha usada: 7764'
   image: {fileID: 0}
   invetoryItem: 0
   CollectMessage: 
