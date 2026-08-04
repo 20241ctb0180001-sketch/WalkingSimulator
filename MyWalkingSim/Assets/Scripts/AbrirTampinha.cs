@@ -37,6 +37,12 @@ public class AbrirTampinha : MonoBehaviour
         {
             painelcdg.SetActive(true);
         }
+
+        if(painelcdg.activeInHierarchy)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
